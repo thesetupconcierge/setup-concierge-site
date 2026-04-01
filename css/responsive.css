@@ -1,0 +1,150 @@
+/* ============================================
+   RESPONSIVE — Setup Concierge
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .nav__links {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background: var(--color-bg) !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.25rem;
+        transform: translateX(100%);
+        transition: transform 0.35s ease;
+        z-index: 9999 !important;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .nav__links.is-open {
+        transform: translateX(0);
+    }
+
+    .nav__hamburger {
+        display: flex;
+        position: relative;
+        z-index: 10000 !important;
+    }
+
+    .nav__hamburger.is-active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav__hamburger.is-active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav__hamburger.is-active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .nav__link {
+        font-size: 1.15rem;
+    }
+
+    /* Hero split stacks on mobile */
+    .hero__split {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero__image {
+        display: none; /* Hide hero image on mobile for clean experience */
+    }
+
+    .hero__content {
+        text-align: center;
+    }
+
+    .hero__subtitle {
+        max-width: 100%;
+    }
+
+    .hero__title {
+        font-size: 2.25rem;
+    }
+
+    /* Process timeline */
+    .process__grid::before {
+        left: 24px;
+    }
+
+    .process__number {
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
+    }
+
+    .services__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .authority__reasons {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+
+    .testimonials__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer__container {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .lead-magnet__form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lead-magnet__input {
+        width: 100%;
+        max-width: 380px;
+    }
+
+    /* Services page */
+    .service-detail__container,
+    .service-detail__container.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+    }
+
+    /* Contact page */
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    :root {
+        --container-padding: 1rem;
+    }
+
+    .hero {
+        min-height: 80vh;
+    }
+
+    .hero__cta {
+        flex-direction: column;
+    }
+
+    .btn--lg {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}

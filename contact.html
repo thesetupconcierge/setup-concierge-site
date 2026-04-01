@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Setup Concierge | Start Your Business Setup</title>
+  <meta name="description" content="Start your business setup with Setup Concierge. Complete our intake form and we'll design the right structure for your business." />
+  <meta property="og:title" content="Contact Setup Concierge — Start My Setup" />
+  <meta property="og:description" content="Complete our intake form and we'll design the right structure for your business." />
+  <meta property="og:image" content="https://setupconcierge.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://setupconcierge.com/og-image.png" />
+  <link rel="icon" type="image/png" href="./images/favicon.png" />
+  <link rel="apple-touch-icon" href="./images/favicon.png" />
+  <script defer data-domain="setupconcierge.com" src="https://plausible.io/js/script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/variables.css" />
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+</head>
+
+<body>
+  <div class="page-loader" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__container">
+      <a href="/" class="nav__logo">
+        <div class="nav__logo-emblem">SC</div>
+        <span class="nav__logo-text">Setup Concierge</span>
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="/" class="nav__link">Home</a></li>
+        <li><a href="./services.html" class="nav__link">Services</a></li>
+        <li><a href="./contact.html" class="nav__link nav__link--active">Contact</a></li>
+        <li><a href="./contact.html" class="nav__link nav__link--cta">Start My Setup</a></li>
+      </ul>
+      <button class="nav__hamburger" id="navHamburger" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="contact-hero">
+    <div class="contact-hero__inner">
+      <h1 class="hero__title">
+        Let's build your business together
+      </h1>
+      <p class="hero__subtitle">
+        Tell us about your business and goals. We'll design a custom structure and roadmap tailored to your needs.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="contact-form-section">
+    <form class="contact-form" data-animate="fade-up" id="intakeForm" action="https://formspree.io/f/xrgnavbk" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Your first name" required />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Your last name" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="serviceType">Service Interested In</label>
+          <select id="serviceType" name="serviceType" required>
+            <option value="" disabled selected>Select a service...</option>
+            <option value="business-setup">Business Setup</option>
+            <option value="trust-estate">Private Trust Estate Setup</option>
+            <option value="both">Both</option>
+            <option value="not-sure">Not Sure Yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="businessStage">Business Stage</label>
+          <select id="businessStage" name="businessStage" required>
+            <option value="" disabled selected>Select your stage...</option>
+            <option value="idea">Just an Idea</option>
+            <option value="starting">Starting (No Filing Yet)</option>
+            <option value="existing">Existing Business</option>
+            <option value="restructuring">Restructuring</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Tell Us About Your Goals</label>
+        <textarea id="message" name="message" placeholder="What are you looking to achieve? The more we know, the better we can help..."></textarea>
+      </div>
+
+      <input type="hidden" name="_subject" value="New Setup Concierge Intake" />
+      <input type="hidden" name="source" value="contact-intake-form" />
+
+      <div class="form-submit">
+        <button type="submit" class="btn btn--primary btn--lg">Start My Setup</button>
+      </div>
+    </form>
+
+    <p class="response-promise" data-animate="fade-up">We typically respond within 24 hours.</p>
+
+    <!-- Contact Info -->
+    <div class="contact-info" data-stagger>
+      <div class="contact-info__item">
+        <h4>Email</h4>
+        <p><a href="mailto:admin@setupconcierge.com">admin@setupconcierge.com</a></p>
+      </div>
+      <div class="contact-info__item">
+        <h4>Phone</h4>
+        <p><a href="tel:+17737730380">+1 (773) 773-0380</a></p>
+      </div>
+      <div class="contact-info__item">
+        <h4>Based In</h4>
+        <p>Sheridan, WY</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="footer__container">
+      <div class="footer__brand">
+        <div class="footer__logo-emblem">SC</div>
+        <p class="footer__tagline">Build your business the right way — from day one.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="./services.html">Services</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__links">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="./privacy.html">Privacy Policy</a></li>
+          <li><a href="./terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer__contact">
+        <h4>Contact</h4>
+        <p><a href="mailto:admin@setupconcierge.com">admin@setupconcierge.com</a></p>
+        <p><a href="tel:+17737730380">+1 (773) 773-0380</a></p>
+        <p>Sheridan, WY</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 Setup Concierge, a Justice For All Foundation LLC product. All Rights Reserved.</p>
+      <p class="footer__disclaimer">Disclaimer: Setup Concierge provides general business guidance, not legal or tax advice.</p>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
