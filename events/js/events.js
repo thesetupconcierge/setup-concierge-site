@@ -1,11 +1,17 @@
 /* ============================================
    QR EVENT HUB — Shared JavaScript
    Setup Concierge Event Experience System
+   v2.0 — Storage-Fed Architecture
 
    Single shared script for:
    · Universal QR Landing Page
    · Event Shell Pages
    · Event Directory Page
+
+   Data flow:
+   1. Fetch from /api/events (directory) or /api/events/:slug (event)
+   2. If API fails, fall back to inline EVENT_CONFIG / EVENTS_REGISTRY
+   3. If neither exists, render polished empty/error state
 
    Page type detection is automatic via
    data-page-type attribute on <body>.
@@ -13,6 +19,14 @@
 
 (function () {
   'use strict';
+
+  /* ─────────────────────────────────────────
+     API CONFIGURATION
+     ───────────────────────────────────────── */
+
+  const API_BASE = '/api/events';
+  const API_TIMEOUT = 8000; // ms
+
 
   /* ─────────────────────────────────────────
      STATUS MODEL
@@ -78,6 +92,72 @@
 
 
   /* ─────────────────────────────────────────
+     DATA FETCHING
+     ───────────────────────────────────────── */
+
+  /**
+   * Fetch with timeout. Returns parsed JSON or null on failure.
+   */
+  async function apiFetch(url) {
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), API_TIMEOUT);
+      const resp = await fetch(url, { signal: controller.signal });
+      clearTimeout(timer);
+      if (!resp.ok) return null;
+      return await resp.json();
+    } catch (err) {
+      console.warn('[QR Event Hub] API fetch failed:', url, err.message);
+      return null;
+    }
+  }
+
+  /**
+   * Fetch single event data from API.
+   * Falls back to inline EVENT_CONFIG if API unavailable.
+   */
+  async function fetchEventData(slug) {
+    // Try API first
+    const data = await apiFetch(`${API_BASE}/${slug}`);
+    if (data && data.event) {
+      console.log('[QR Event Hub] Event loaded from API:', slug);
+      return data.event;
+    }
+
+    // Fallback: inline EVENT_CONFIG (for backward compatibility / pre-R2 state)
+    if (typeof EVENT_CONFIG !== 'undefined') {
+      console.log('[QR Event Hub] Using fallback EVENT_CONFIG for:', slug);
+      return EVENT_CONFIG;
+    }
+
+    console.warn('[QR Event Hub] No event data available for:', slug);
+    return null;
+  }
+
+  /**
+   * Fetch events directory from API.
+   * Falls back to inline EVENTS_REGISTRY if API unavailable.
+   */
+  async function fetchEventsDirectory() {
+    // Try API first
+    const data = await apiFetch(API_BASE);
+    if (data && data.events) {
+      console.log('[QR Event Hub] Events directory loaded from API:', data.events.length, 'events');
+      return data.events;
+    }
+
+    // Fallback: inline EVENTS_REGISTRY
+    if (typeof EVENTS_REGISTRY !== 'undefined') {
+      console.log('[QR Event Hub] Using fallback EVENTS_REGISTRY');
+      return EVENTS_REGISTRY;
+    }
+
+    console.warn('[QR Event Hub] No events directory available');
+    return [];
+  }
+
+
+  /* ─────────────────────────────────────────
      UTILITY HELPERS
      ───────────────────────────────────────── */
 
@@ -104,6 +184,40 @@
   function hide(id) {
     const el = document.getElementById(id);
     if (el) el.style.display = 'none';
+  }
+
+
+  /* ─────────────────────────────────────────
+     LOADING STATE
+     ───────────────────────────────────────── */
+
+  function showLoading(containerId) {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+    el.innerHTML = `
+      <div class="loading-state" style="text-align: center; padding: 3rem 1rem;">
+        <div class="loading-state__spinner" style="
+          width: 32px; height: 32px; margin: 0 auto 1rem;
+          border: 3px solid rgba(255,255,255,0.1);
+          border-top-color: var(--accent, #C8A96E);
+          border-radius: 50%;
+          animation: spin 0.8s linear infinite;
+        "></div>
+        <p style="color: var(--text-muted, rgba(255,255,255,0.5)); font-family: var(--font-body, 'Inter', sans-serif); font-size: 0.875rem;">
+          Loading...
+        </p>
+      </div>`;
+  }
+
+  function showErrorState(containerId, message) {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+    el.innerHTML = `
+      <div class="directory-empty" style="grid-column: 1 / -1;">
+        <span class="directory-empty__icon">⚠️</span>
+        <h3 class="directory-empty__title">${message || 'Unable to load'}</h3>
+        <p class="directory-empty__text">Please check back in a moment.</p>
+      </div>`;
   }
 
 
@@ -268,19 +382,11 @@
         try {
           const endpoint = form.dataset.endpoint;
           if (endpoint) {
-            /* ── REAL SUBMISSION ──
-               Connect to FormSubmit, Formspree, Make.com, Zapier, or custom API
-               FUTURE: Replace with CMS/Supabase/Firebase integration */
             const fd = new FormData(form);
             fd.append('_source', 'qr-event-hub');
-            if (typeof EVENT_CONFIG !== 'undefined') {
-              fd.append('_event', EVENT_CONFIG.title || '');
-            }
             const resp = await fetch(endpoint, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } });
             if (!resp.ok) throw new Error('Submission failed');
           } else {
-            /* ── MOCK SUBMISSION ──
-               No endpoint configured — simulate success */
             console.log('[QR Event Hub] Mock form submission:', {
               name: nameInput?.value,
               email: emailInput?.value,
@@ -343,7 +449,7 @@
 
 
   /* ─────────────────────────────────────────
-     QUICK ACTION: CONTACT
+     QUICK ACTIONS
      ───────────────────────────────────────── */
 
   function initQuickActions() {
@@ -373,12 +479,30 @@
 
 
   /* ═════════════════════════════════════════
-     EVENT SHELL PAGE
+     EVENT SHELL PAGE (API-Fed)
      ═════════════════════════════════════════ */
 
-  function initEventPage() {
-    if (typeof EVENT_CONFIG === 'undefined') return;
-    const C = EVENT_CONFIG;
+  async function initEventPage() {
+    // Get slug from inline config or URL path
+    const slug = (typeof EVENT_SLUG !== 'undefined' && EVENT_SLUG)
+      || (typeof EVENT_CONFIG !== 'undefined' && EVENT_CONFIG.slug)
+      || window.location.pathname.split('/').filter(Boolean).pop()
+      || '';
+
+    if (!slug) {
+      console.error('[QR Event Hub] No event slug found');
+      return;
+    }
+
+    // Fetch event data (API → fallback → null)
+    const C = await fetchEventData(slug);
+
+    if (!C) {
+      // No data at all — show graceful "not ready" state
+      renderEventNotFound();
+      return;
+    }
+
     const S = STATUS[C.status] || STATUS['coming-soon'];
 
     // Apply custom accent color
@@ -452,15 +576,15 @@
 
     // Signup
     if (C.notifyEnabled !== false) {
-      setText('signupHeading', C.signupHeading || S.primaryCTA.action === 'notify'
+      setText('signupHeading', C.signupHeading || (S.primaryCTA.action === 'notify'
         ? 'Want the gallery as soon as it drops?'
-        : 'Want the full album when it\'s ready?');
+        : 'Want the full album when it\'s ready?'));
       setText('signupSubtext', C.signupSubtext || 'Drop your email and we\'ll send you the complete gallery — no spam, no strings.');
     } else {
       hide('signupSection');
     }
 
-    // Creator
+    // Creator (defaults — not in manifest, keeps branding consistent)
     setText('creatorName', C.creatorName || 'Justice McKinney');
     setText('creatorTitle', C.creatorTitle || 'Event Media & Digital Experience Design');
     setText('creatorDescription', C.creatorDescription || 'I create clean, memorable digital experiences for events, brands, and organizations.');
@@ -486,13 +610,63 @@
     const softBtn = document.getElementById('softCTAButton');
     if (softBtn) {
       softBtn.textContent = C.softCTAButtonText || 'Work With Me';
-      softBtn.href = C.softCTAButtonLink || 'https://setupconcierge.com/contact';
+      softBtn.href = C.softCTAButtonLink || C.bookingLink || 'https://setupconcierge.com/contact';
     }
 
     // Footer
     setText('footerBrandName', C.brandName || 'Setup Concierge');
     setText('footerClosing', C.footerText || 'The event ends. The impression does not.');
     setText('footerCopyright', `© ${new Date().getFullYear()} ${C.brandName || 'Setup Concierge'}. Built with care.`);
+
+    // Update page title
+    if (C.title) {
+      document.title = `${C.title} — Photos & Memories`;
+    }
+  }
+
+
+  /**
+   * Graceful fallback when no event data exists at all.
+   */
+  function renderEventNotFound() {
+    const S = STATUS['coming-soon'];
+    const chipEl = document.getElementById('statusChip');
+    if (chipEl) {
+      chipEl.className = 'status-chip ' + S.chipClass;
+      chipEl.innerHTML = `<span class="status-chip__dot"></span>${S.label}`;
+    }
+    setText('heroHeadline', 'Event Page Coming Soon');
+    setText('heroSubtext', 'This event page is being set up. Check back soon or sign up to get notified.');
+    setText('heroEventName', '');
+    const primaryBtn = document.getElementById('heroPrimaryCTA');
+    if (primaryBtn) {
+      primaryBtn.textContent = 'Get Notified';
+      primaryBtn.href = '#signupSection';
+    }
+    const secondaryBtn = document.getElementById('heroSecondaryCTA');
+    if (secondaryBtn) secondaryBtn.style.display = 'none';
+
+    // Show empty gallery
+    renderGallery({ galleryImages: [], previewImages: [] }, S);
+
+    // Creator defaults
+    setText('creatorName', 'Justice McKinney');
+    setText('creatorTitle', 'Event Media & Digital Experience Design');
+    setText('creatorDescription', 'I create clean, memorable digital experiences for events, brands, and organizations.');
+    setText('creatorBrand', 'Powered by Setup Concierge');
+    setHref('creatorWebsiteLink', 'https://setupconcierge.com/contact');
+    setHref('creatorContactLink', 'mailto:admin@setupconcierge.com');
+    const avatarEl = document.getElementById('creatorAvatar');
+    if (avatarEl) avatarEl.innerHTML = '<span class="creator__avatar-initials">JM</span>';
+
+    setText('softCTAHeading', 'Want something like this for your next event?');
+    setText('softCTAText', 'I build custom QR event pages, polished guest experiences, and clean digital presentation systems that make your event feel complete.');
+    const softBtn = document.getElementById('softCTAButton');
+    if (softBtn) { softBtn.textContent = 'Work With Me'; softBtn.href = 'https://setupconcierge.com/contact'; }
+
+    setText('footerBrandName', 'Setup Concierge');
+    setText('footerClosing', 'The event ends. The impression does not.');
+    setText('footerCopyright', `© ${new Date().getFullYear()} Setup Concierge. Built with care.`);
   }
 
 
@@ -628,22 +802,22 @@
 
 
   /* ═════════════════════════════════════════
-     UNIVERSAL QR PAGE
+     UNIVERSAL QR PAGE (API-Fed)
      ═════════════════════════════════════════ */
 
-  function initUniversalPage() {
-    if (typeof EVENTS_REGISTRY === 'undefined') return;
-
+  async function initUniversalPage() {
     const grid = document.getElementById('eventsGrid');
     if (!grid) return;
 
+    // Show loading
+    showLoading('eventsGrid');
+
+    // Fetch events
+    const events = await fetchEventsDirectory();
+
     grid.innerHTML = '';
 
-    /* FUTURE: Replace EVENTS_REGISTRY with API call
-       Example: const events = await fetch('/api/events').then(r => r.json());
-       Or: Supabase, Airtable, Firebase, etc. */
-
-    if (EVENTS_REGISTRY.length === 0) {
+    if (events.length === 0) {
       grid.innerHTML = `
         <div class="directory-empty" style="grid-column: 1 / -1;">
           <span class="directory-empty__icon">📅</span>
@@ -653,32 +827,35 @@
       return;
     }
 
-    EVENTS_REGISTRY.forEach(event => {
+    events.forEach(event => {
       grid.appendChild(createEventCard(event));
     });
   }
 
 
   /* ═════════════════════════════════════════
-     DIRECTORY PAGE
+     DIRECTORY PAGE (API-Fed)
      ═════════════════════════════════════════ */
 
-  function initDirectoryPage() {
-    if (typeof EVENTS_REGISTRY === 'undefined') return;
-
+  async function initDirectoryPage() {
     const grid = document.getElementById('directoryGrid');
     const searchInput = document.getElementById('directorySearch');
     const emptyState = document.getElementById('directoryEmpty');
 
     if (!grid) return;
 
+    // Show loading
+    showLoading('directoryGrid');
+
+    // Fetch events
+    const allEvents = await fetchEventsDirectory();
     let activeFilter = 'all';
 
     function renderEvents() {
       const query = searchInput?.value?.toLowerCase().trim() || '';
       grid.innerHTML = '';
 
-      const filtered = EVENTS_REGISTRY.filter(event => {
+      const filtered = allEvents.filter(event => {
         const matchesFilter = activeFilter === 'all' || event.status === activeFilter;
         const matchesSearch = !query ||
           event.title.toLowerCase().includes(query) ||
@@ -735,6 +912,9 @@
            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
          </div>`;
 
+    // Resolve event page URL — handle both directory-relative and slug-based
+    const eventUrl = event.slug ? `${event.slug}/` : '#';
+
     card.innerHTML = `
       <div class="card__cover">
         ${coverHTML}
@@ -755,7 +935,7 @@
           </span>
         </div>
         <div class="card__action">
-          <a href="${event.slug}/index.html" class="btn btn--outline btn--sm">View Event Page</a>
+          <a href="${eventUrl}" class="btn btn--outline btn--sm">View Event Page</a>
         </div>
       </div>`;
 
@@ -770,7 +950,15 @@
   function init() {
     const pageType = document.body.dataset.pageType;
 
-    // Shared
+    // Inject loading spinner keyframe (once)
+    if (!document.getElementById('qr-hub-keyframes')) {
+      const style = document.createElement('style');
+      style.id = 'qr-hub-keyframes';
+      style.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
+      document.head.appendChild(style);
+    }
+
+    // Shared (non-async)
     initLoader();
     initShare();
     initLightbox();
@@ -778,7 +966,7 @@
     initQuickActions();
     initScrollAnimations();
 
-    // Page-specific
+    // Page-specific (async — fetch from API)
     if (pageType === 'event') {
       initEventPage();
     } else if (pageType === 'universal') {
@@ -795,7 +983,9 @@
        ─ initSponsorSection()   // Dynamic sponsor blocks
        ─ initFeedbackCapture()  // Post-event surveys
        ─ initDownloadables()    // Digital keepsakes
-       ─ initHostDashboard()    // Real-time analytics */
+       ─ initHostDashboard()    // Real-time analytics
+       ─ initAdminUploader()    // Protected upload interface
+       ─ initManifestEditor()   // Inline manifest editing */
   }
 
   if (document.readyState === 'loading') {

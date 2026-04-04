@@ -1,0 +1,30 @@
+{
+  "slug": "johnson-wedding-reception",
+  "title": "Johnson Wedding Reception",
+  "date": "December 14, 2026",
+  "location": "Oak Park, Illinois",
+  "status": "preview-available",
+  "published": true,
+  "organizer": "The Johnson Family",
+  "description": "A beautiful celebration of love and family.",
+
+  "coverImage": "",
+  "featuredImages": [],
+  "galleryImages": [],
+  "previewImages": [
+    { "file": "gallery/001.jpg", "alt": "Guests celebrating together" },
+    { "file": "gallery/002.jpg", "alt": "An elegant toast" },
+    { "file": "gallery/003.jpg", "alt": "Dance floor energy" }
+  ],
+
+  "contextHeading": "Congratulations to the Johnsons",
+  "hostMessage": "Thank you for sharing in this beautiful celebration. A few preview photos are ready — the full gallery will be available soon.",
+  "notifyEnabled": true,
+  "signupHeading": "Want the full wedding album?",
+  "signupSubtext": "The complete gallery is being prepared. Drop your email and we'll send it as soon as it's ready.",
+  "galleryLink": "",
+  "bookingLink": "https://setupconcierge.com/contact",
+
+  "accentColor": "",
+  "updatedAt": "2026-04-04T20:00:00Z"
+}

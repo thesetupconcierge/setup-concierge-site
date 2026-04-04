@@ -1,0 +1,26 @@
+{
+  "slug": "anderson-corporate-gala",
+  "title": "Anderson Corporate Gala",
+  "date": "January 18, 2027",
+  "location": "Downtown Chicago",
+  "status": "coming-soon",
+  "published": true,
+  "organizer": "Anderson & Associates",
+  "description": "An evening of recognition and celebration for the Anderson & Associates team and partners.",
+
+  "coverImage": "",
+  "featuredImages": [],
+  "galleryImages": [],
+  "previewImages": [],
+
+  "contextHeading": "An Evening of Excellence",
+  "hostMessage": "Join us for an evening of recognition, networking, and celebration. This event page will be updated with photos during and after the gala.",
+  "notifyEnabled": true,
+  "signupHeading": "Want photos from the gala?",
+  "signupSubtext": "Sign up and we'll notify you the moment the gallery is ready.",
+  "galleryLink": "",
+  "bookingLink": "https://setupconcierge.com/contact",
+
+  "accentColor": "",
+  "updatedAt": "2026-04-04T20:00:00Z"
+}

@@ -10,5 +10,16 @@
   },
   "compatibility_flags": [
     "nodejs_compat"
-  ]
+  ],
+  "r2_buckets": [
+    {
+      "binding": "EVENTS_BUCKET",
+      "bucket_name": "sc-events"
+    }
+  ],
+  "vars": {
+    // Use "/media" for proxy mode (default, works immediately)
+    // Switch to "https://media.setupconcierge.com" when R2 custom domain is connected
+    "MEDIA_BASE_URL": "/media"
+  }
 }

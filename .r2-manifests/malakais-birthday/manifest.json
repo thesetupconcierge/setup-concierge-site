@@ -1,0 +1,33 @@
+{
+  "slug": "malakais-birthday",
+  "title": "Malakai's Birthday Celebration",
+  "date": "November 5, 2026",
+  "location": "Chicago, Illinois",
+  "status": "gallery-live",
+  "published": true,
+  "organizer": "Malakai & Family",
+  "description": "A celebration to remember.",
+
+  "coverImage": "cover.jpg",
+  "featuredImages": ["gallery/001.jpg", "gallery/003.jpg"],
+  "galleryImages": [
+    { "file": "gallery/001.jpg", "alt": "Friends celebrating together" },
+    { "file": "gallery/002.jpg", "alt": "Elegant table setting" },
+    { "file": "gallery/003.jpg", "alt": "Birthday cake with sparklers" },
+    { "file": "gallery/004.jpg", "alt": "Toast to the guest of honor" },
+    { "file": "gallery/005.jpg", "alt": "Dance floor moments" },
+    { "file": "gallery/006.jpg", "alt": "Celebration decorations" }
+  ],
+  "previewImages": [],
+
+  "contextHeading": "Thanks for celebrating with us",
+  "hostMessage": "Thank you for celebrating Malakai's special day with us. Your presence made it even more memorable. We hope you enjoy these photos as much as we enjoyed having you there.",
+  "notifyEnabled": true,
+  "signupHeading": "Want the full album when it's ready?",
+  "signupSubtext": "Drop your email and we'll send you the complete gallery — no spam, no strings.",
+  "galleryLink": "",
+  "bookingLink": "https://setupconcierge.com/contact",
+
+  "accentColor": "",
+  "updatedAt": "2026-04-04T20:00:00Z"
+}

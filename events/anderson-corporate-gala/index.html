@@ -177,37 +177,8 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <!-- EVENT CONFIG -->
-  <script>
-    const EVENT_CONFIG = {
-      status: 'coming-soon',
-
-      title: 'Anderson Corporate Gala',
-      date: 'January 18, 2027',
-      location: 'Downtown Chicago',
-      organizer: 'Anderson & Associates',
-      description: 'An evening of recognition and celebration for the Anderson & Associates team and partners.',
-
-      coverImage: '',
-      galleryLink: '',
-      galleryImages: [],
-      previewImages: [],
-
-      contextHeading: 'An Evening of Excellence',
-      hostMessage: 'Join us for an evening of recognition, networking, and celebration. This event page will be updated with photos during and after the gala.',
-
-      notifyEnabled: true,
-      signupHeading: 'Want photos from the gala?',
-      signupSubtext: "Sign up and we'll notify you the moment the gallery is ready.",
-
-      creatorName: 'Justice McKinney',
-      creatorTitle: 'Event Media & Digital Experience Design',
-      creatorDescription: 'I create clean, memorable digital experiences for events, brands, and organizations.',
-      creatorWebsite: 'https://setupconcierge.com/contact',
-      creatorEmail: 'admin@setupconcierge.com',
-      brandName: 'Setup Concierge',
-    };
-  </script>
+  <!-- Event data loaded dynamically from /api/events/:slug -->
+  <script>const EVENT_SLUG = 'anderson-corporate-gala';</script>
   <script src="../js/events.js"></script>
 </body>
 </html>

@@ -246,62 +246,8 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 
-  <!-- ═══════════════════════════════════════
-       EVENT CONFIGURATION
-       ═══════════════════════════════════════ -->
-  <script>
-    const EVENT_CONFIG = {
-      // ─── Status ─────────────────────────────
-      // Options: coming-soon | capturing-live | preview-available | gallery-live | archived
-      status: 'gallery-live',
-
-      // ─── Core Event Info ────────────────────
-      title:    "Malakai's Birthday Celebration",
-      date:     'November 5, 2026',
-      location: 'Chicago, Illinois',
-      organizer: 'Malakai & Family',
-      description: '',
-
-      // ─── Hero ───────────────────────────────
-      coverImage: './images/hero.png',
-      // Override auto-generated status headlines (optional):
-      // heroHeadline: 'Custom Headline',
-      // heroSubtext: 'Custom subtext',
-
-      // ─── Context Block ──────────────────────
-      contextHeading: 'Thanks for celebrating with us',
-      hostMessage: "Thank you for celebrating Malakai's special day with us. Your presence made it even more memorable. We hope you enjoy these photos as much as we enjoyed having you there.",
-
-      // ─── Gallery ────────────────────────────
-      galleryLink: '#',
-      galleryImages: [
-        { src: './images/gallery-1.png', alt: 'Friends celebrating together' },
-        { src: './images/gallery-2.png', alt: 'Elegant table setting' },
-        { src: './images/gallery-3.png', alt: 'Birthday cake with sparklers' },
-        { src: './images/gallery-4.png', alt: 'Toast to the guest of honor' },
-        { src: './images/gallery-5.png', alt: 'Dance floor moments' },
-        { src: './images/gallery-6.png', alt: 'Celebration decorations' },
-      ],
-      previewImages: [],
-
-      // ─── Notification ───────────────────────
-      notifyEnabled: true,
-      signupHeading: "Want the full album when it's ready?",
-      signupSubtext: "Drop your email and we'll send you the complete gallery — no spam, no strings.",
-
-      // ─── Creator ────────────────────────────
-      creatorName: 'Justice McKinney',
-      creatorTitle: 'Event Media & Digital Experience Design',
-      creatorDescription: 'I create clean, memorable digital experiences for events, brands, and organizations.',
-      creatorPhoto: '',
-      creatorWebsite: 'https://setupconcierge.com/contact',
-      creatorEmail: 'admin@setupconcierge.com',
-      brandName: 'Setup Concierge',
-
-      // ─── Visual (Optional) ──────────────────
-      accentColor: '',
-    };
-  </script>
+  <!-- Event data loaded dynamically from /api/events/:slug -->
+  <script>const EVENT_SLUG = 'malakais-birthday';</script>
   <script src="../js/events.js"></script>
 </body>
 </html>

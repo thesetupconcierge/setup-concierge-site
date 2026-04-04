@@ -186,41 +186,8 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <!-- EVENT CONFIG -->
-  <script>
-    const EVENT_CONFIG = {
-      status: 'preview-available',
-
-      title: 'Johnson Wedding Reception',
-      date: 'December 14, 2026',
-      location: 'Oak Park, Illinois',
-      organizer: 'The Johnson Family',
-      description: '',
-
-      coverImage: '',
-      galleryLink: '',
-      galleryImages: [],
-      previewImages: [
-        { src: '../malakais-birthday/images/gallery-1.png', alt: 'Guests celebrating together' },
-        { src: '../malakais-birthday/images/gallery-4.png', alt: 'An elegant toast' },
-        { src: '../malakais-birthday/images/gallery-5.png', alt: 'Dance floor energy' },
-      ],
-
-      contextHeading: 'Congratulations to the Johnsons',
-      hostMessage: "Thank you for sharing in this beautiful celebration. A few preview photos are ready — the full gallery will be available soon.",
-
-      notifyEnabled: true,
-      signupHeading: 'Want the full wedding album?',
-      signupSubtext: "The complete gallery is being prepared. Drop your email and we'll send it as soon as it's ready.",
-
-      creatorName: 'Justice McKinney',
-      creatorTitle: 'Event Media & Digital Experience Design',
-      creatorDescription: 'I create clean, memorable digital experiences for events, brands, and organizations.',
-      creatorWebsite: 'https://setupconcierge.com/contact',
-      creatorEmail: 'admin@setupconcierge.com',
-      brandName: 'Setup Concierge',
-    };
-  </script>
+  <!-- Event data loaded dynamically from /api/events/:slug -->
+  <script>const EVENT_SLUG = 'johnson-wedding-reception';</script>
   <script src="../js/events.js"></script>
 </body>
 </html>
