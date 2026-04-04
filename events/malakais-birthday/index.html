@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO: Update title and description per event -->
+  <title>Malakai's Birthday Celebration — Photos & Memories</title>
+  <meta name="description" content="Access photos and relive the moments from Malakai's Birthday Celebration. A curated digital experience by Setup Concierge." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Malakai's Birthday Celebration — Your Photos Are Here" />
+  <meta property="og:description" content="Relive the moments. Access your event photos instantly." />
+  <meta property="og:image" content="./images/hero.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="./images/hero.png" />
+
+  <!-- Favicon: reuse SC brand -->
+  <link rel="icon" type="image/png" href="../../images/favicon.png" />
+  <link rel="apple-touch-icon" href="../../images/favicon.png" />
+
+  <!-- Fonts: Outfit + Inter (shared with SC brand) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./styles.css" />
+
+  <!-- Analytics: Plausible (shared with SC domain) -->
+  <script defer data-domain="setupconcierge.com" src="https://plausible.io/js/script.js"></script>
+</head>
+
+<body>
+  <!-- Page Loader -->
+  <div class="page-loader" aria-hidden="true"></div>
+
+  <!-- =====================
+       1. HERO
+       ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <img id="heroImage" src="./images/hero.png" alt="Malakai's Birthday Celebration venue" />
+    </div>
+    <div class="hero__overlay"></div>
+
+    <div class="hero__content" data-animate>
+      <!-- Eyebrow badge -->
+      <span class="hero__eyebrow">
+        <svg class="hero__eyebrow-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+        </svg>
+        Event Photos
+      </span>
+
+      <!-- Main headline -->
+      <h1 class="hero__title" id="heroHeadline">Your Event Photos Are Here</h1>
+      <p class="hero__subtitle" id="heroSubtext">Relive the moments. Download your favorites.</p>
+
+      <!-- Event name -->
+      <p class="hero__event-name" id="heroEventName">Malakai's Birthday Celebration</p>
+
+      <!-- Event meta -->
+      <div class="hero__meta">
+        <span class="hero__meta-item">
+          <svg class="hero__meta-icon" viewBox="0 0 24 24">
+            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/>
+          </svg>
+          <span id="heroDate">November 5, 2026</span>
+        </span>
+        <span class="hero__meta-item">
+          <svg class="hero__meta-icon" viewBox="0 0 24 24">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          <span id="heroLocation">Chicago, Illinois</span>
+        </span>
+      </div>
+
+      <!-- Hero CTAs -->
+      <div class="hero__actions">
+        <a href="#" class="btn btn--primary btn--lg" data-gallery-link id="heroCTA">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+          </svg>
+          View Gallery
+        </a>
+        <a href="#signupSection" class="btn btn--secondary">
+          Get Full Gallery Updates
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       2. QUICK ACTIONS STRIP
+       ===================== -->
+  <section class="quick-actions" id="quickActions">
+    <div class="container">
+      <div class="quick-actions__grid" data-stagger>
+
+        <!-- View Photos -->
+        <a href="#" class="quick-action" data-gallery-link>
+          <svg class="quick-action__icon" viewBox="0 0 24 24">
+            <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+          </svg>
+          View Photos
+        </a>
+
+        <!-- Share This Page -->
+        <button class="quick-action" id="shareAction" type="button">
+          <svg class="quick-action__icon" viewBox="0 0 24 24">
+            <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+          </svg>
+          Share Page
+        </button>
+
+        <!-- Get Updates -->
+        <button class="quick-action" id="updatesAction" type="button">
+          <svg class="quick-action__icon" viewBox="0 0 24 24">
+            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/>
+          </svg>
+          Get Updates
+        </button>
+
+        <!-- Contact -->
+        <button class="quick-action" id="contactAction" type="button">
+          <svg class="quick-action__icon" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+          Contact
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       3. EVENT CONTEXT
+       ===================== -->
+  <section class="section event-context" id="eventContext">
+    <div class="container" data-animate>
+      <span class="event-context__icon">✨</span>
+      <h2 class="event-context__heading" id="contextHeading">Thanks for celebrating with us</h2>
+      <p class="event-context__message" id="contextMessage">
+        Thank you for celebrating Malakai's special day with us. Your presence made it even more memorable.
+        We hope you enjoy these photos as much as we enjoyed having you there.
+      </p>
+      <p class="event-context__host" id="contextHost">— Malakai & Family</p>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       4. GALLERY PREVIEW
+       ===================== -->
+  <section class="section gallery-preview" id="galleryPreview">
+    <div class="container">
+      <h2 class="gallery-preview__heading" id="galleryHeading" data-animate>A Few Moments</h2>
+      <p class="gallery-preview__subtext" id="gallerySubtext" data-animate>
+        Tap any photo to preview. Open the full gallery to see everything.
+      </p>
+
+      <!-- Gallery grid — populated by JS from config -->
+      <div class="gallery-preview__grid" id="galleryGrid" data-stagger>
+        <!-- Images injected by script.js -->
+      </div>
+
+      <div class="gallery-preview__cta" data-animate>
+        <a href="#" class="btn btn--primary" data-gallery-link>
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 7v2.99s-1.99.01-2 0V7h-3s.01-1.99 0-2h3V2h2v3h3v2h-3zm-3 4V8h-3V5H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8h-3zM5 19l3-4 2 3 3-4 4 5H5z"/>
+          </svg>
+          Open Full Gallery
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       5. GALLERY SIGNUP
+       ===================== -->
+  <section class="section signup" id="signupSection">
+    <div class="container">
+      <div class="signup__card" data-animate="scale">
+        <span class="signup__icon">📸</span>
+        <h2 class="signup__heading" id="signupHeading">Want the full album when it's ready?</h2>
+        <p class="signup__subtext" id="signupSubtext">
+          Drop your email and we'll send you the complete gallery — no spam, no strings.
+        </p>
+
+        <!-- Signup Form -->
+        <form class="signup__form" id="signupForm" novalidate>
+          <input
+            type="text"
+            name="name"
+            class="signup__input"
+            placeholder="Your name"
+            required
+            autocomplete="name"
+          />
+          <div class="signup__field-error" id="nameError"></div>
+
+          <input
+            type="email"
+            name="email"
+            class="signup__input"
+            placeholder="your@email.com"
+            required
+            autocomplete="email"
+          />
+          <div class="signup__field-error" id="emailError"></div>
+
+          <button type="submit" class="btn btn--primary btn--full">Send Me the Gallery</button>
+        </form>
+
+        <p class="signup__trust">
+          <svg class="signup__trust-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+          </svg>
+          We'll only use this to send the gallery. That's it.
+        </p>
+
+        <!-- Success State -->
+        <div class="signup__success" id="signupSuccess">
+          <span class="signup__state-icon">🎉</span>
+          <h3>You're on the list!</h3>
+          <p>We'll send the full gallery to your inbox as soon as it's ready.</p>
+        </div>
+
+        <!-- Error State -->
+        <div class="signup__error-state" id="signupError">
+          <span class="signup__state-icon">⚠️</span>
+          <h3>Something went wrong</h3>
+          <p>Please try again in a moment, or reach out to us directly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       6. CREATOR / BRAND
+       ===================== -->
+  <section class="section creator" id="creatorSection">
+    <div class="container">
+      <div class="creator__card" data-animate="scale">
+        <p class="creator__label">Captured & Curated By</p>
+
+        <!-- Creator avatar — JS fills with photo or initials -->
+        <div class="creator__avatar" id="creatorAvatar">
+          <span class="creator__avatar-initials">JM</span>
+        </div>
+
+        <h3 class="creator__name" id="creatorName">Justice McKinney</h3>
+        <p class="creator__title" id="creatorTitle">Event Media & Digital Experience Design</p>
+        <p class="creator__description" id="creatorDescription">
+          I create clean, memorable digital experiences for events, brands, and organizations.
+        </p>
+        <p class="creator__brand-line" id="creatorBrand">Powered by <strong>Setup Concierge</strong></p>
+
+        <div class="creator__actions">
+          <a href="https://setupconcierge.com/contact" class="btn btn--primary btn--sm" id="creatorWebsiteLink">
+            Work With Me
+          </a>
+          <a href="mailto:admin@setupconcierge.com" class="btn btn--outline btn--sm" id="creatorContactLink">
+            Get In Touch
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       7. SOFT OFFER
+       ===================== -->
+  <section class="section soft-offer" id="softOffer">
+    <div class="container">
+      <div class="soft-offer__inner" data-animate>
+        <h2 class="soft-offer__heading" id="softCTAHeading">
+          Want something like this for your next event?
+        </h2>
+        <p class="soft-offer__text" id="softCTAText">
+          I build custom QR event pages, polished guest experiences, and clean digital presentation
+          systems that make your event feel complete.
+        </p>
+        <a href="https://setupconcierge.com/contact" class="btn btn--primary" id="softCTAButton">
+          Work With Me
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       8. FOOTER
+       ===================== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer__brand">
+        <div class="footer__logo-mark">SC</div>
+        <span class="footer__brand-name" id="footerBrandName">Setup Concierge</span>
+      </div>
+
+      <div class="footer__links">
+        <a href="https://setupconcierge.com" class="footer__link" target="_blank" rel="noopener" id="footerWebsite">Website</a>
+        <a href="mailto:admin@setupconcierge.com" class="footer__link" id="footerEmail">Email</a>
+      </div>
+
+      <!-- Social — populated by JS if socialLinks configured -->
+      <div class="footer__social" id="footerSocial"></div>
+
+      <p class="footer__closing" id="footerClosing">The event ends. The impression does not.</p>
+      <p class="footer__copyright" id="footerCopyright">© 2026 Setup Concierge. Built with care.</p>
+    </div>
+  </footer>
+
+
+  <!-- =====================
+       LIGHTBOX MODAL
+       ===================== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" tabindex="-1">
+    <button class="lightbox__close" aria-label="Close photo viewer">&times;</button>
+    <button class="lightbox__nav lightbox__nav--prev" aria-label="Previous photo">&#8249;</button>
+    <img class="lightbox__img" id="lightboxImg" src="" alt="" />
+    <button class="lightbox__nav lightbox__nav--next" aria-label="Next photo">&#8250;</button>
+    <span class="lightbox__counter" id="lightboxCounter"></span>
+  </div>
+
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+
+  <!-- Script — config + all functionality -->
+  <script src="./script.js"></script>
+</body>
+
+</html>
