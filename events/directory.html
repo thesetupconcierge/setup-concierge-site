@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find Your Event — Justice McKinney</title>
+  <meta name="description" content="Browse event galleries, find your photos, and check event status. Curated by Justice McKinney." />
+  <link rel="icon" type="image/png" href="../images/favicon.png" />
+  <link rel="apple-touch-icon" href="../images/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/events.css" />
+  <script defer data-domain="setupconcierge.com" src="https://plausible.io/js/script.js"></script>
+</head>
+
+<body data-page-type="directory">
+  <div class="page-loader" aria-hidden="true"></div>
+
+  <!-- =====================
+       HEADER
+       ===================== -->
+  <header class="directory-header">
+    <div class="container">
+      <a href="index.html" class="footer__brand" style="margin-bottom: 2rem; display: inline-flex;">
+        <div class="footer__logo-mark">SC</div>
+        <span class="footer__brand-name">Event Hub</span>
+      </a>
+      <h1 class="directory-header__title" data-animate>Find Your Event</h1>
+      <p class="directory-header__subtext" data-animate>
+        Search by event name, date, or location. Browse recent and upcoming events.
+      </p>
+    </div>
+  </header>
+
+
+  <!-- =====================
+       SEARCH & FILTERS
+       ===================== -->
+  <section class="container">
+    <div class="directory-search" data-animate>
+      <div class="directory-search__wrapper">
+        <svg class="directory-search__icon" viewBox="0 0 24 24">
+          <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+        <input
+          type="text"
+          id="directorySearch"
+          class="directory-search__input"
+          placeholder="Search events..."
+          autocomplete="off"
+        />
+      </div>
+    </div>
+
+    <div class="directory-filters" data-animate>
+      <button class="filter-chip active" data-filter="all">All Events</button>
+      <button class="filter-chip" data-filter="gallery-live">Gallery Live</button>
+      <button class="filter-chip" data-filter="preview-available">Preview</button>
+      <button class="filter-chip" data-filter="capturing-live">Capturing</button>
+      <button class="filter-chip" data-filter="coming-soon">Coming Soon</button>
+      <button class="filter-chip" data-filter="archived">Archived</button>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       EVENT GRID
+       ===================== -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="directory-grid" id="directoryGrid" data-stagger>
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="directory-empty" id="directoryEmpty" style="display: none;">
+        <span class="directory-empty__icon">🔍</span>
+        <h3 class="directory-empty__title">No events found</h3>
+        <p class="directory-empty__text">Try adjusting your search or filter to find what you're looking for.</p>
+        <div style="margin-top: 1rem;">
+          <a href="index.html" class="btn btn--outline btn--sm">Back to Event Hub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       FOOTER
+       ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__brand">
+        <div class="footer__logo-mark">SC</div>
+        <span class="footer__brand-name">Setup Concierge</span>
+      </div>
+      <div class="footer__links">
+        <a href="index.html" class="footer__link">Event Hub</a>
+        <a href="https://setupconcierge.com" class="footer__link" target="_blank" rel="noopener">Website</a>
+        <a href="mailto:admin@setupconcierge.com" class="footer__link">Contact</a>
+      </div>
+      <p class="footer__closing">The event ends. The impression does not.</p>
+      <p class="footer__copyright">© 2026 Setup Concierge. Built with care.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- =====================
+       EVENTS REGISTRY
+       ===================== -->
+  <script>
+    /* FUTURE: Replace with API call to CMS / database */
+    const EVENTS_REGISTRY = [
+      {
+        slug: 'malakais-birthday',
+        title: "Malakai's Birthday Celebration",
+        date: 'November 5, 2026',
+        location: 'Chicago, Illinois',
+        status: 'gallery-live',
+        coverImage: 'malakais-birthday/images/hero.png',
+      },
+      {
+        slug: 'johnson-wedding-reception',
+        title: 'Johnson Wedding Reception',
+        date: 'December 14, 2026',
+        location: 'Oak Park, Illinois',
+        status: 'preview-available',
+        coverImage: '',
+      },
+      {
+        slug: 'anderson-corporate-gala',
+        title: 'Anderson Corporate Gala',
+        date: 'January 18, 2027',
+        location: 'Downtown Chicago',
+        status: 'coming-soon',
+        coverImage: '',
+      },
+    ];
+  </script>
+  <script src="./js/events.js"></script>
+</body>
+</html>

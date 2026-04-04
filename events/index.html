@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Photos & Galleries — Justice McKinney</title>
+  <meta name="description" content="Find your event photos, get gallery alerts, or book your next shoot. A curated digital experience by Justice McKinney." />
+  <meta property="og:title" content="Event Photos & Galleries — Justice McKinney" />
+  <meta property="og:description" content="Find your event photos, get notified when galleries go live, or book your next shoot." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" type="image/png" href="../images/favicon.png" />
+  <link rel="apple-touch-icon" href="../images/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/events.css" />
+  <script defer data-domain="setupconcierge.com" src="https://plausible.io/js/script.js"></script>
+</head>
+
+<body data-page-type="universal">
+  <div class="page-loader" aria-hidden="true"></div>
+
+  <!-- =====================
+       HERO
+       ===================== -->
+  <section class="hero universal-hero" id="hero">
+    <div class="hero__bg hero__bg--gradient"></div>
+
+    <div class="hero__content" data-animate>
+      <span class="hero__eyebrow">
+        <svg class="hero__eyebrow-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+        </svg>
+        Event Hub
+      </span>
+
+      <h1 class="hero__title">Met Justice?<br>You're in the right place.</h1>
+      <p class="hero__subtitle">
+        Find your event photos, get notified when galleries go live, or book your next shoot.
+      </p>
+
+      <div class="universal-actions" data-stagger>
+        <a href="directory.html" class="quick-action">
+          <svg class="quick-action__icon" viewBox="0 0 24 24">
+            <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+          </svg>
+          Find My Photos
+        </a>
+        <button class="quick-action" data-action="notify">
+          <svg class="quick-action__icon" viewBox="0 0 24 24">
+            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+          </svg>
+          Gallery Alerts
+        </button>
+        <a href="https://setupconcierge.com/contact" class="quick-action">
+          <svg class="quick-action__icon" viewBox="0 0 24 24">
+            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/>
+          </svg>
+          Book a Shoot
+        </a>
+        <a href="https://setupconcierge.com" class="quick-action" target="_blank" rel="noopener">
+          <svg class="quick-action__icon" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+          View Portfolio
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       RECENT EVENTS
+       ===================== -->
+  <section class="section" id="eventsSection">
+    <div class="container">
+      <h2 class="events-strip__heading" data-animate>Recent Events</h2>
+      <p class="events-strip__subtext" data-animate>Browse galleries, check on upcoming events, or find your photos.</p>
+
+      <div class="events-strip__grid" id="eventsGrid" data-stagger>
+        <!-- Populated by JS from EVENTS_REGISTRY -->
+      </div>
+
+      <div style="text-align: center; margin-top: 1.5rem;" data-animate>
+        <a href="directory.html" class="btn btn--outline btn--sm">View All Events</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       LEAD CAPTURE
+       ===================== -->
+  <section class="section signup" id="signupSection">
+    <div class="container">
+      <div class="signup__card" data-animate="scale">
+        <span class="signup__icon">📬</span>
+        <h2 class="signup__heading">Get Gallery Alerts</h2>
+        <p class="signup__subtext">
+          Drop your info and we'll notify you when new event galleries go live — no spam, no strings.
+        </p>
+
+        <form class="signup__form" data-form="signup" novalidate>
+          <input type="text" name="name" class="form-input" placeholder="Your name" required autocomplete="name" />
+          <div class="form-error"></div>
+          <input type="email" name="email" class="form-input" placeholder="your@email.com" required autocomplete="email" />
+          <div class="form-error"></div>
+          <input type="text" name="event" class="form-input" placeholder="What event were you at? (optional)" autocomplete="off" />
+          <button type="submit" class="btn btn--primary btn--full">Notify Me</button>
+        </form>
+
+        <p class="form-trust">
+          <svg class="form-trust-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+          </svg>
+          We'll only use this to send gallery links. That's it.
+        </p>
+
+        <div class="signup__success" id="signupSuccess">
+          <span class="signup__state-icon">🎉</span>
+          <h3>You're on the list!</h3>
+          <p>We'll send gallery links to your inbox as soon as they're ready.</p>
+        </div>
+        <div class="signup__error-state" id="signupError">
+          <span class="signup__state-icon">⚠️</span>
+          <h3>Something went wrong</h3>
+          <p>Please try again in a moment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       SAMPLE WORK STRIP
+       ===================== -->
+  <section class="section trust-strip" id="trustStrip">
+    <div class="container">
+      <h2 class="trust-strip__heading" data-animate>Sample Work</h2>
+      <div class="trust-strip__grid" data-stagger>
+        <div class="trust-strip__item"><img src="malakais-birthday/images/gallery-1.png" alt="Event celebration" loading="lazy" /></div>
+        <div class="trust-strip__item"><img src="malakais-birthday/images/gallery-2.png" alt="Event details" loading="lazy" /></div>
+        <div class="trust-strip__item"><img src="malakais-birthday/images/gallery-3.png" alt="Event moment" loading="lazy" /></div>
+        <div class="trust-strip__item"><img src="malakais-birthday/images/gallery-4.png" alt="Event toast" loading="lazy" /></div>
+        <div class="trust-strip__item"><img src="malakais-birthday/images/gallery-5.png" alt="Event dance floor" loading="lazy" /></div>
+        <div class="trust-strip__item"><img src="malakais-birthday/images/gallery-6.png" alt="Event decor" loading="lazy" /></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       CREATOR BLOCK
+       ===================== -->
+  <section class="section creator">
+    <div class="container">
+      <div class="creator__card" data-animate="scale">
+        <p class="creator__label">Your Photographer & Digital Experience Designer</p>
+        <div class="creator__avatar"><span class="creator__avatar-initials">JM</span></div>
+        <h3 class="creator__name">Justice McKinney</h3>
+        <p class="creator__title">Event Media & Digital Experience Design</p>
+        <p class="creator__description">
+          I capture moments and build the digital experiences that let your guests relive them.
+          Clean, premium, and always intentional.
+        </p>
+        <div class="creator__actions">
+          <a href="https://setupconcierge.com/contact" class="btn btn--primary btn--sm">Work With Me</a>
+          <a href="mailto:admin@setupconcierge.com" class="btn btn--outline btn--sm">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       CLOSING CTA
+       ===================== -->
+  <section class="section">
+    <div class="container">
+      <div class="soft-offer__inner" data-animate>
+        <h2 class="soft-offer__heading">Need a QR event page for your guests?</h2>
+        <p class="soft-offer__text">
+          I build custom QR event pages, polished guest experiences, and digital presentation systems
+          that make your event feel complete — before, during, and after.
+        </p>
+        <a href="https://setupconcierge.com/contact" class="btn btn--primary">Let's Talk</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       FOOTER
+       ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__brand">
+        <div class="footer__logo-mark">SC</div>
+        <span class="footer__brand-name">Setup Concierge</span>
+      </div>
+      <div class="footer__links">
+        <a href="https://setupconcierge.com" class="footer__link" target="_blank" rel="noopener">Website</a>
+        <a href="mailto:admin@setupconcierge.com" class="footer__link">Email</a>
+        <a href="directory.html" class="footer__link">All Events</a>
+      </div>
+      <p class="footer__closing">Great moments deserve a clean presentation.</p>
+      <p class="footer__copyright">© 2026 Setup Concierge. Built with care.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- =====================
+       EVENTS REGISTRY
+       ===================== -->
+  <script>
+    /* FUTURE: Replace with API call to CMS / Supabase / Airtable / Firebase
+       Example: const EVENTS_REGISTRY = await fetch('/api/events').then(r => r.json()); */
+    const EVENTS_REGISTRY = [
+      {
+        slug: 'malakais-birthday',
+        title: "Malakai's Birthday Celebration",
+        date: 'November 5, 2026',
+        location: 'Chicago, Illinois',
+        status: 'gallery-live',
+        coverImage: 'malakais-birthday/images/hero.png',
+      },
+      {
+        slug: 'johnson-wedding-reception',
+        title: 'Johnson Wedding Reception',
+        date: 'December 14, 2026',
+        location: 'Oak Park, Illinois',
+        status: 'preview-available',
+        coverImage: '',
+      },
+      {
+        slug: 'anderson-corporate-gala',
+        title: 'Anderson Corporate Gala',
+        date: 'January 18, 2027',
+        location: 'Downtown Chicago',
+        status: 'coming-soon',
+        coverImage: '',
+      },
+    ];
+  </script>
+  <script src="./js/events.js"></script>
+</body>
+</html>

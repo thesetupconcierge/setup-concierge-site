@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anderson Corporate Gala — Event Page</title>
+  <meta name="description" content="Event details and gallery for the Anderson Corporate Gala. Photos coming soon." />
+  <link rel="icon" type="image/png" href="../../images/favicon.png" />
+  <link rel="apple-touch-icon" href="../../images/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/events.css" />
+  <script defer data-domain="setupconcierge.com" src="https://plausible.io/js/script.js"></script>
+</head>
+
+<body data-page-type="event">
+  <div class="page-loader" aria-hidden="true"></div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__bg hero__bg--gradient"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content" data-animate>
+      <div class="hero__status"><span class="status-chip" id="statusChip"></span></div>
+      <h1 class="hero__title" id="heroHeadline"></h1>
+      <p class="hero__subtitle" id="heroSubtext"></p>
+      <p class="hero__event-name" id="heroEventName"></p>
+      <div class="hero__meta">
+        <span class="hero__meta-item">
+          <svg class="hero__meta-icon" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
+          <span id="heroDate"></span>
+        </span>
+        <span class="hero__meta-item">
+          <svg class="hero__meta-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span id="heroLocation"></span>
+        </span>
+      </div>
+      <div class="hero__actions">
+        <a href="#" class="btn btn--primary btn--lg" id="heroPrimaryCTA"></a>
+        <a href="#signupSection" class="btn btn--secondary" id="heroSecondaryCTA"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK ACTIONS -->
+  <section class="quick-actions">
+    <div class="container">
+      <div class="quick-actions__grid" data-stagger>
+        <button class="quick-action" data-action="notify">
+          <svg class="quick-action__icon" viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+          Get Notified
+        </button>
+        <button class="quick-action" data-action="share">
+          <svg class="quick-action__icon" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+          Share
+        </button>
+        <a href="https://setupconcierge.com/contact" class="quick-action">
+          <svg class="quick-action__icon" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
+          Book
+        </a>
+        <button class="quick-action" data-action="contact" data-email="admin@setupconcierge.com">
+          <svg class="quick-action__icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Contact
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENT CONTEXT -->
+  <section class="section event-context">
+    <div class="container" data-animate>
+      <span class="event-context__icon">🏢</span>
+      <h2 class="event-context__heading" id="contextHeading"></h2>
+      <p class="event-context__message" id="contextMessage"></p>
+      <p class="event-context__host" id="contextHost"></p>
+    </div>
+  </section>
+
+  <!-- GALLERY (Status-Aware) -->
+  <section class="section" id="gallerySection">
+    <div class="container">
+      <h2 class="gallery__heading" id="galleryHeading" data-animate></h2>
+      <p class="gallery__subtext" id="gallerySubtext" data-animate></p>
+      <div class="gallery__empty" id="galleryEmpty" style="display: none;" data-animate>
+        <svg class="gallery__empty-icon" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+        <h3 class="gallery__empty-title" id="galleryEmptyTitle"></h3>
+        <p class="gallery__empty-text" id="galleryEmptyText"></p>
+        <a href="#signupSection" class="btn btn--outline btn--sm">Get Notified When Photos Drop</a>
+      </div>
+      <div class="gallery__teaser-grid" id="galleryTeaser" style="display: none;"></div>
+      <div class="gallery__grid" id="galleryGrid" data-stagger></div>
+      <div class="gallery__more" id="galleryMore" style="display: none;"></div>
+      <div class="gallery__cta" id="galleryCTA" style="display: none;" data-animate>
+        <a href="#" class="btn btn--primary" data-gallery-cta>Open Full Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTIFICATION SIGNUP -->
+  <section class="section signup" id="signupSection">
+    <div class="container">
+      <div class="signup__card" data-animate="scale">
+        <span class="signup__icon">🔔</span>
+        <h2 class="signup__heading" id="signupHeading"></h2>
+        <p class="signup__subtext" id="signupSubtext"></p>
+        <form class="signup__form" data-form="signup" novalidate>
+          <input type="text" name="name" class="form-input" placeholder="Your name" required autocomplete="name" />
+          <div class="form-error"></div>
+          <input type="email" name="email" class="form-input" placeholder="your@email.com" required autocomplete="email" />
+          <div class="form-error"></div>
+          <button type="submit" class="btn btn--primary btn--full">Notify Me</button>
+        </form>
+        <p class="form-trust">
+          <svg class="form-trust-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          We'll only send gallery notifications. Nothing else.
+        </p>
+        <div class="signup__success" id="signupSuccess">
+          <span class="signup__state-icon">🎉</span>
+          <h3>You're on the list!</h3>
+          <p>We'll notify you when the gallery is ready.</p>
+        </div>
+        <div class="signup__error-state" id="signupError">
+          <span class="signup__state-icon">⚠️</span>
+          <h3>Something went wrong</h3>
+          <p>Please try again in a moment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREATOR -->
+  <section class="section creator">
+    <div class="container">
+      <div class="creator__card" data-animate="scale">
+        <p class="creator__label">Captured & Curated By</p>
+        <div class="creator__avatar" id="creatorAvatar"></div>
+        <h3 class="creator__name" id="creatorName"></h3>
+        <p class="creator__title" id="creatorTitle"></p>
+        <p class="creator__description" id="creatorDescription"></p>
+        <p class="creator__brand-line" id="creatorBrand"></p>
+        <div class="creator__actions">
+          <a href="#" class="btn btn--primary btn--sm" id="creatorWebsiteLink">Work With Me</a>
+          <a href="#" class="btn btn--outline btn--sm" id="creatorContactLink">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOFT OFFER -->
+  <section class="section">
+    <div class="container">
+      <div class="soft-offer__inner" data-animate>
+        <h2 class="soft-offer__heading" id="softCTAHeading"></h2>
+        <p class="soft-offer__text" id="softCTAText"></p>
+        <a href="#" class="btn btn--primary" id="softCTAButton"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__brand">
+        <div class="footer__logo-mark">SC</div>
+        <span class="footer__brand-name" id="footerBrandName"></span>
+      </div>
+      <div class="footer__links">
+        <a href="../index.html" class="footer__link">Event Hub</a>
+        <a href="../directory.html" class="footer__link">All Events</a>
+        <a href="https://setupconcierge.com" class="footer__link" target="_blank" rel="noopener">Website</a>
+      </div>
+      <p class="footer__closing" id="footerClosing"></p>
+      <p class="footer__copyright" id="footerCopyright"></p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- EVENT CONFIG -->
+  <script>
+    const EVENT_CONFIG = {
+      status: 'coming-soon',
+
+      title: 'Anderson Corporate Gala',
+      date: 'January 18, 2027',
+      location: 'Downtown Chicago',
+      organizer: 'Anderson & Associates',
+      description: 'An evening of recognition and celebration for the Anderson & Associates team and partners.',
+
+      coverImage: '',
+      galleryLink: '',
+      galleryImages: [],
+      previewImages: [],
+
+      contextHeading: 'An Evening of Excellence',
+      hostMessage: 'Join us for an evening of recognition, networking, and celebration. This event page will be updated with photos during and after the gala.',
+
+      notifyEnabled: true,
+      signupHeading: 'Want photos from the gala?',
+      signupSubtext: "Sign up and we'll notify you the moment the gallery is ready.",
+
+      creatorName: 'Justice McKinney',
+      creatorTitle: 'Event Media & Digital Experience Design',
+      creatorDescription: 'I create clean, memorable digital experiences for events, brands, and organizations.',
+      creatorWebsite: 'https://setupconcierge.com/contact',
+      creatorEmail: 'admin@setupconcierge.com',
+      brandName: 'Setup Concierge',
+    };
+  </script>
+  <script src="../js/events.js"></script>
+</body>
+</html>

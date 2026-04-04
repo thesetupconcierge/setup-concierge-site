@@ -3,13 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Malakai's Birthday Celebration — Photos & Memories</title>
-  <meta name="description" content="Access photos and relive the moments from Malakai's Birthday Celebration. A curated digital experience by Justice McKinney." />
-  <meta property="og:title" content="Malakai's Birthday Celebration — Your Photos Are Here" />
-  <meta property="og:description" content="Relive the moments. Access your event photos instantly." />
-  <meta property="og:image" content="./images/hero.png" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <title>Johnson Wedding Reception — Preview Photos</title>
+  <meta name="description" content="Preview photos from the Johnson Wedding Reception. Full gallery coming soon." />
   <link rel="icon" type="image/png" href="../../images/favicon.png" />
   <link rel="apple-touch-icon" href="../../images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,24 +17,15 @@
 <body data-page-type="event">
   <div class="page-loader" aria-hidden="true"></div>
 
-  <!-- ═══════════════════════════════════════
-       HERO
-       ═══════════════════════════════════════ -->
+  <!-- HERO -->
   <section class="hero" id="hero">
-    <div class="hero__bg">
-      <img id="heroImage" src="./images/hero.png" alt="Event venue" />
-    </div>
+    <div class="hero__bg hero__bg--gradient"></div>
     <div class="hero__overlay"></div>
-
     <div class="hero__content" data-animate>
-      <div class="hero__status">
-        <span class="status-chip" id="statusChip"></span>
-      </div>
-
+      <div class="hero__status"><span class="status-chip" id="statusChip"></span></div>
       <h1 class="hero__title" id="heroHeadline"></h1>
       <p class="hero__subtitle" id="heroSubtext"></p>
       <p class="hero__event-name" id="heroEventName"></p>
-
       <div class="hero__meta">
         <span class="hero__meta-item">
           <svg class="hero__meta-icon" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
@@ -50,7 +36,6 @@
           <span id="heroLocation"></span>
         </span>
       </div>
-
       <div class="hero__actions">
         <a href="#" class="btn btn--primary btn--lg" id="heroPrimaryCTA"></a>
         <a href="#signupSection" class="btn btn--secondary" id="heroSecondaryCTA"></a>
@@ -58,16 +43,13 @@
     </div>
   </section>
 
-
-  <!-- ═══════════════════════════════════════
-       QUICK ACTIONS
-       ═══════════════════════════════════════ -->
+  <!-- QUICK ACTIONS -->
   <section class="quick-actions">
     <div class="container">
       <div class="quick-actions__grid" data-stagger>
         <a href="#gallerySection" class="quick-action">
           <svg class="quick-action__icon" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
-          Photos
+          Preview
         </a>
         <button class="quick-action" data-action="share">
           <svg class="quick-action__icon" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
@@ -75,9 +57,9 @@
         </button>
         <button class="quick-action" data-action="notify">
           <svg class="quick-action__icon" viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
-          Updates
+          Full Gallery
         </button>
-        <button class="quick-action" data-action="contact" data-email="admin@setupconcierge.com" data-subject="Inquiry from Malakai's Birthday Event Page">
+        <button class="quick-action" data-action="contact" data-email="admin@setupconcierge.com">
           <svg class="quick-action__icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
           Contact
         </button>
@@ -85,89 +67,58 @@
     </div>
   </section>
 
-
-  <!-- ═══════════════════════════════════════
-       EVENT CONTEXT
-       ═══════════════════════════════════════ -->
+  <!-- EVENT CONTEXT -->
   <section class="section event-context">
     <div class="container" data-animate>
-      <span class="event-context__icon">✨</span>
+      <span class="event-context__icon">💒</span>
       <h2 class="event-context__heading" id="contextHeading"></h2>
       <p class="event-context__message" id="contextMessage"></p>
       <p class="event-context__host" id="contextHost"></p>
     </div>
   </section>
 
-
-  <!-- ═══════════════════════════════════════
-       GALLERY (Status-Aware)
-       ═══════════════════════════════════════ -->
+  <!-- GALLERY (Status-Aware) -->
   <section class="section" id="gallerySection">
     <div class="container">
       <h2 class="gallery__heading" id="galleryHeading" data-animate></h2>
       <p class="gallery__subtext" id="gallerySubtext" data-animate></p>
-
-      <!-- Empty State -->
       <div class="gallery__empty" id="galleryEmpty" style="display: none;" data-animate>
-        <svg class="gallery__empty-icon" viewBox="0 0 24 24">
-          <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-        </svg>
+        <svg class="gallery__empty-icon" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
         <h3 class="gallery__empty-title" id="galleryEmptyTitle"></h3>
         <p class="gallery__empty-text" id="galleryEmptyText"></p>
         <a href="#signupSection" class="btn btn--outline btn--sm">Get Notified When Photos Drop</a>
       </div>
-
-      <!-- Teaser State (shimmer) -->
       <div class="gallery__teaser-grid" id="galleryTeaser" style="display: none;"></div>
-
-      <!-- Preview / Full Grid -->
       <div class="gallery__grid" id="galleryGrid" data-stagger></div>
-
-      <!-- More coming indicator -->
       <div class="gallery__more" id="galleryMore" style="display: none;"></div>
-
-      <!-- Full gallery CTA -->
       <div class="gallery__cta" id="galleryCTA" style="display: none;" data-animate>
-        <a href="#" class="btn btn--primary" data-gallery-cta>
-          <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 7v2.99s-1.99.01-2 0V7h-3s.01-1.99 0-2h3V2h2v3h3v2h-3zm-3 4V8h-3V5H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8h-3zM5 19l3-4 2 3 3-4 4 5H5z"/>
-          </svg>
-          Open Full Gallery
-        </a>
+        <a href="#" class="btn btn--primary" data-gallery-cta>Open Full Gallery</a>
       </div>
     </div>
   </section>
 
-
-  <!-- ═══════════════════════════════════════
-       NOTIFICATION SIGNUP
-       ═══════════════════════════════════════ -->
+  <!-- NOTIFICATION SIGNUP -->
   <section class="section signup" id="signupSection">
     <div class="container">
       <div class="signup__card" data-animate="scale">
         <span class="signup__icon">📸</span>
         <h2 class="signup__heading" id="signupHeading"></h2>
         <p class="signup__subtext" id="signupSubtext"></p>
-
         <form class="signup__form" data-form="signup" novalidate>
           <input type="text" name="name" class="form-input" placeholder="Your name" required autocomplete="name" />
           <div class="form-error"></div>
           <input type="email" name="email" class="form-input" placeholder="your@email.com" required autocomplete="email" />
           <div class="form-error"></div>
-          <button type="submit" class="btn btn--primary btn--full">Send Me the Gallery</button>
+          <button type="submit" class="btn btn--primary btn--full">Send Me the Full Gallery</button>
         </form>
-
         <p class="form-trust">
-          <svg class="form-trust-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
-          </svg>
+          <svg class="form-trust-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
           We'll only use this to send the gallery. That's it.
         </p>
-
         <div class="signup__success" id="signupSuccess">
           <span class="signup__state-icon">🎉</span>
           <h3>You're on the list!</h3>
-          <p>We'll send gallery updates to your inbox.</p>
+          <p>We'll send the full gallery to your inbox as soon as it's ready.</p>
         </div>
         <div class="signup__error-state" id="signupError">
           <span class="signup__state-icon">⚠️</span>
@@ -178,10 +129,7 @@
     </div>
   </section>
 
-
-  <!-- ═══════════════════════════════════════
-       CREATOR BLOCK
-       ═══════════════════════════════════════ -->
+  <!-- CREATOR -->
   <section class="section creator">
     <div class="container">
       <div class="creator__card" data-animate="scale">
@@ -199,10 +147,7 @@
     </div>
   </section>
 
-
-  <!-- ═══════════════════════════════════════
-       SOFT OFFER
-       ═══════════════════════════════════════ -->
+  <!-- SOFT OFFER -->
   <section class="section">
     <div class="container">
       <div class="soft-offer__inner" data-animate>
@@ -213,10 +158,7 @@
     </div>
   </section>
 
-
-  <!-- ═══════════════════════════════════════
-       FOOTER
-       ═══════════════════════════════════════ -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer__brand">
@@ -233,7 +175,6 @@
     </div>
   </footer>
 
-
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" tabindex="-1">
     <button class="lightbox__close" aria-label="Close">×</button>
@@ -245,61 +186,39 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-
-  <!-- ═══════════════════════════════════════
-       EVENT CONFIGURATION
-       ═══════════════════════════════════════ -->
+  <!-- EVENT CONFIG -->
   <script>
     const EVENT_CONFIG = {
-      // ─── Status ─────────────────────────────
-      // Options: coming-soon | capturing-live | preview-available | gallery-live | archived
-      status: 'gallery-live',
+      status: 'preview-available',
 
-      // ─── Core Event Info ────────────────────
-      title:    "Malakai's Birthday Celebration",
-      date:     'November 5, 2026',
-      location: 'Chicago, Illinois',
-      organizer: 'Malakai & Family',
+      title: 'Johnson Wedding Reception',
+      date: 'December 14, 2026',
+      location: 'Oak Park, Illinois',
+      organizer: 'The Johnson Family',
       description: '',
 
-      // ─── Hero ───────────────────────────────
-      coverImage: './images/hero.png',
-      // Override auto-generated status headlines (optional):
-      // heroHeadline: 'Custom Headline',
-      // heroSubtext: 'Custom subtext',
-
-      // ─── Context Block ──────────────────────
-      contextHeading: 'Thanks for celebrating with us',
-      hostMessage: "Thank you for celebrating Malakai's special day with us. Your presence made it even more memorable. We hope you enjoy these photos as much as we enjoyed having you there.",
-
-      // ─── Gallery ────────────────────────────
-      galleryLink: '#',
-      galleryImages: [
-        { src: './images/gallery-1.png', alt: 'Friends celebrating together' },
-        { src: './images/gallery-2.png', alt: 'Elegant table setting' },
-        { src: './images/gallery-3.png', alt: 'Birthday cake with sparklers' },
-        { src: './images/gallery-4.png', alt: 'Toast to the guest of honor' },
-        { src: './images/gallery-5.png', alt: 'Dance floor moments' },
-        { src: './images/gallery-6.png', alt: 'Celebration decorations' },
+      coverImage: '',
+      galleryLink: '',
+      galleryImages: [],
+      previewImages: [
+        { src: '../malakais-birthday/images/gallery-1.png', alt: 'Guests celebrating together' },
+        { src: '../malakais-birthday/images/gallery-4.png', alt: 'An elegant toast' },
+        { src: '../malakais-birthday/images/gallery-5.png', alt: 'Dance floor energy' },
       ],
-      previewImages: [],
 
-      // ─── Notification ───────────────────────
+      contextHeading: 'Congratulations to the Johnsons',
+      hostMessage: "Thank you for sharing in this beautiful celebration. A few preview photos are ready — the full gallery will be available soon.",
+
       notifyEnabled: true,
-      signupHeading: "Want the full album when it's ready?",
-      signupSubtext: "Drop your email and we'll send you the complete gallery — no spam, no strings.",
+      signupHeading: 'Want the full wedding album?',
+      signupSubtext: "The complete gallery is being prepared. Drop your email and we'll send it as soon as it's ready.",
 
-      // ─── Creator ────────────────────────────
       creatorName: 'Justice McKinney',
       creatorTitle: 'Event Media & Digital Experience Design',
       creatorDescription: 'I create clean, memorable digital experiences for events, brands, and organizations.',
-      creatorPhoto: '',
       creatorWebsite: 'https://setupconcierge.com/contact',
       creatorEmail: 'admin@setupconcierge.com',
       brandName: 'Setup Concierge',
-
-      // ─── Visual (Optional) ──────────────────
-      accentColor: '',
     };
   </script>
   <script src="../js/events.js"></script>
