@@ -1,7 +1,11 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "setup-concierge-site",
-  "pages_build_output_dir": ".",
+  "main": "./src/worker.js",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS"
+  },
   "compatibility_date": "2025-09-27",
   "observability": {
     "enabled": true
